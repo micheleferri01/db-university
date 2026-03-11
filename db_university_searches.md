@@ -12,9 +12,9 @@ WHERE courses.cfu > 10;
 ```
 3. Selezionare tutti gli studenti che hanno più di 30 anni
 ```sql
-SELECT * , YEAR(students.date_of_birth)
+SELECT *
 FROM db_university.students
-WHERE  2026 - YEAR(students.date_of_birth) > 30;
+WHERE students.date_of_birth < CURRENT_DATE() - INTERVAL 30 YEAR;
 ```
 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di
 laurea (286)
