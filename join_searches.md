@@ -198,3 +198,31 @@ WHERE departments.name = 'Dipartimento di Matematica';
 7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti
 per ogni esame, stampando anche il voto massimo. Successivamente,
 filtrare i tentativi con voto minimo 18
+```sql
+SELECT 
+-- #table students
+	students.*, 
+
+-- #table exams
+	exams.id AS exam_id, 
+    exams.course_id, 
+    exams.date, 
+    exams.hour, 
+    exams.location, 
+    exams.address,
+    
+--  #table exam_student
+	exam_student.vote
+	
+FROM db_university.students
+
+INNER JOIN db_university.exam_student
+ON students.id = exam_student.student_id
+
+INNER JOIN db_university.exams
+ON exam_student.exam_id = exams.id
+
+WHERE exam_student.vote >= 18
+ORDER BY students.id ASC;
+
+```
