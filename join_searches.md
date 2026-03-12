@@ -163,7 +163,7 @@ Matematica (54)
 SELECT 
 
 -- #table teachers
-	teachers.id AS teacher_id, 
+	DISTINCT teachers.id AS teacher_id, 
     teachers.name, 
     teachers.surname, 
     teachers.phone AS teacher_phone, 
@@ -179,7 +179,7 @@ SELECT
     departments.email AS department_email, 
     departments.website, 
     departments.head_of_department
-    
+
 FROM db_university.teachers
 
 INNER JOIN db_university.course_teacher
